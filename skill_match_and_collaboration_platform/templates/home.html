@@ -1,84 +1,138 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="filters">
-        <h5>Type of Employment</h5>
-        {% for key, value in job_types.items %}
-        <div>
-          <input type="checkbox" id="{{ key }}">
-          <label for="{{ key }}">{{ value }}</label>
-        </div>
-        {% endfor %}
-      </div>
-
-      <hr>
-
-      <div class="categories">
-        <h5>Categories</h5>
-        {% for cat in categories %}
-        <div>
-          <input type="checkbox" id="{{ cat.slug }}">
-          <label for="{{ cat.slug }}">{{ cat.name }}</label>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="col-md-9">
-      <h4>All Jobs</h4>
-      <p>Showing {{ data.count }} results</p>
-
-      {% for job in data %}
-      <div class="job-card">
-        <div class="job-info">
-          <div class="job-logo">
-            <img src="https://via.placeholder.com/60" alt="Company Logo">
-          </div>
-          <div class="job-details">
-            <a href="{% url 'job_detail' job.id %}">
-              <h5 class="job-title text-decoration-none text-dark">{{ job.title }}</h5>
-            </a>
-            <p class="job-meta">Posted by {{ job.author.first_name }} {{ job.author.last_name }}</p>
-            
-            <div class="categories tags">
-              <strong>Categories:</strong>
-              {% for category in job.Categories.all %}
-              <span class="category">{{ category.name }}</span>
-              {% empty %}
-              <span>No categories assigned</span>
-              {% endfor %}
-            </div>
-            
-            <div class="tags">
-              <strong>Job Type:</strong>
-              {% for type in job.job_type %}
-              <span class="{{ type|lower }}">{{ type }}</span>
-              {% empty %}
-              <span>No job types assigned</span>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-        <!-- Apply Button -->
-         {% if job.author.username != user.username %}
-         {% if job.status == 'Not-Find' %}
-        <a href="{% url 'apply_job' job.id %}" type="button" class="status-button btn btn-primary" >
-          Apply
-        </a>
-        {% else %}
-        <a href="{% url 'apply_job' job.id %}" type="button" class="status-button btn btn-danger disabled" >
-          Closed
-        </a>
-        {% endif %}
-        {% endif %}
-      </div>
-      {% endfor %}
-    </div>
+<section class="hero-section">
+  <div class="container text-center">
+      <h1 class="display-3 fw-bold">Discover, Connect, Collaborate</h1>
+      <p class="lead mt-3">Find the perfect match for your skills and work together to achieve greatness.</p>
+      <a href="{% url 'find_job' %}" class="btn btn-primary btn-lg mt-4 shadow btn-glow">Get Started <i class="fas fa-arrow-right"></i></a>
   </div>
-</div>
+</section>
 
+<!-- Features Section -->
+<section id="features" class="py-5">
+  <div class="container">
+      <div class="text-center mb-5">
+          <h2 class="fw-bold">Why Choose TalentDock?</h2>
+          <p class="text-muted">Our platform offers unique features to help you connect and collaborate.</p>
+      </div>
+      <div class="row g-4">
+          <div class="col-md-4">
+              <div class="card feature-card">
+                  <div class="card-body text-center">
+                      <i class="fas fa-user-check fa-3x text-primary mb-3"></i>
+                      <h5 class="card-title mt-3">Skill Matching</h5>
+                      <p class="card-text">Find collaborators with complementary skills in just a few clicks.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card feature-card">
+                  <div class="card-body text-center">
+                      <i class="fas fa-comments fa-3x text-primary mb-3"></i>
+                      <h5 class="card-title mt-3">Seamless Communication</h5>
+                      <p class="card-text">Collaborate efficiently with our built-in messaging tools.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card feature-card">
+                  <div class="card-body text-center">
+                      <i class="fas fa-lightbulb fa-3x text-primary mb-3"></i>
+                      <h5 class="card-title mt-3">Innovative Ideas</h5>
+                      <p class="card-text">Work with creative minds to turn your ideas into reality.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="bg-light py-5">
+  <div class="container">
+      <div class="text-center mb-5">
+          <h2 class="fw-bold">What Our Users Say</h2>
+      </div>
+      <div class="row g-4">
+          <div class="col-md-6">
+              <div class="testimonial">
+                  <p>"SkillMatch helped me find the perfect partner for my startup. The platform is intuitive and efficient!"</p>
+                  <p class="fw-bold">- Ashraful.</p>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="testimonial">
+                  <p>"I found a community of like-minded individuals to collaborate with. Highly recommend!"</p>
+                  <p class="fw-bold">- Kazi.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+<style>
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+  .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{% static 'bg-img.jpg' %}') no-repeat center center/cover;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1.5s ease-in-out;
+  }
+  .feature-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  }
+  .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  }
+  .testimonial {
+      font-style: italic;
+      border-left: 4px solid #007bff;
+      padding-left: 15px;
+      background: #f8f9fa;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+  }
+  footer {
+      background: #181a1d;
+      color: white;
+      padding: 40px 0;
+  }
+  .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+  }
+  .footer-links a:hover {
+      color: #007bff;
+      text-decoration: underline;
+  }
+  .btn-glow {
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }
+  .btn-glow:hover {
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
+  }
+</style>
 {% endblock %}

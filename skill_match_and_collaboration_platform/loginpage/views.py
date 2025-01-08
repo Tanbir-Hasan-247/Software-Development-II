@@ -134,3 +134,16 @@ class UserPostView(ListView):
 
     def get_queryset(self):
         return JobPost.objects.filter(author=self.request.user)
+ 
+
+from django.contrib.auth.decorators import login_required 
+
+@login_required
+def delete_profile(request):
+    if request.method == "POST":
+        user = request.user
+        user.delete()  # Delete the user instance
+        # messages.success(request, "Your profile has been deleted successfully.")
+        return redirect('homepage')  # Redirect to the homepage or another appropriate page
+
+    return render(request, 'delete_profile.html')
