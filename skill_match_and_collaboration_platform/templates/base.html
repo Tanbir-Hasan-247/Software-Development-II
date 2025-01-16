@@ -44,7 +44,7 @@
         }
   
         .bellicon{
-          margin-left: 400px;
+          margin-left: 450px;
         }
        
         .bell {
@@ -222,6 +222,17 @@
                   My Post
                 </a>
               </li>
+              {% endif %}
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-white"
+                  aria-current="page"
+                  href="{% url 'aboutpage' %}"
+                >
+                  About Us
+                </a>
+              </li>
+              {% if user.is_authenticated %}
               <li class="nav-item bellicon">
                 <a 
                   class="button bellicon text-white btn btn-primary profile-icon" 

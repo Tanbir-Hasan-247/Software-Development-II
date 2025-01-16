@@ -4,7 +4,7 @@
 <section class="hero-section">
   <div class="container text-center">
       <h1 class="display-3 fw-bold">Discover, Connect, Collaborate</h1>
-      <p class="lead mt-3">Find the perfect match for your skills and work together to achieve greatness.</p>
+      <p class="lead mt-3">Empowering your journey to find the perfect match for your skills and ideas.</p>
       <a href="{% url 'find_job' %}" class="btn btn-primary btn-lg mt-4 shadow btn-glow">Get Started <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
@@ -48,30 +48,124 @@
   </div>
 </section>
 
-<!-- Testimonials Section -->
-<section id="testimonials" class="bg-light py-5">
+<!-- How It Works Section -->
+<section id="how-it-works" class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-4 text-primary">How It Works</h2>
+            <p class="text-muted fs-5">A simple process to turn ideas into reality</p>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-3 text-center">
+                <div class="step-box shadow-lg p-4 rounded-3 bg-white">
+                    <div class="icon-container mb-3">
+                        <i class="fas fa-user-plus fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="fw-semibold">1. Sign Up</h5>
+                    <p class="text-muted">Create your profile and showcase your skills.</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="step-box shadow-lg p-4 rounded-3 bg-white">
+                    <div class="icon-container mb-3">
+                        <i class="fas fa-search fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="fw-semibold">2. Explore</h5>
+                    <p class="text-muted">Discover projects and collaborators that match your expertise.</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="step-box shadow-lg p-4 rounded-3 bg-white">
+                    <div class="icon-container mb-3">
+                        <i class="fas fa-handshake fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="fw-semibold">3. Connect</h5>
+                    <p class="text-muted">Engage and communicate seamlessly with your matches.</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="step-box shadow-lg p-4 rounded-3 bg-white">
+                    <div class="icon-container mb-3">
+                        <i class="fas fa-rocket fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="fw-semibold">4. Collaborate</h5>
+                    <p class="text-muted">Work together to bring ideas to life and achieve success.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <style>
+      #how-it-works {
+          background: linear-gradient(135deg, #f9f9f9, #ffffff);
+      }
+      .step-box {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .step-box:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .icon-container {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background-color: #e3f2fd;
+      }
+    </style>
+  </section>  
+
+<!-- Trending Skills Section -->
+<section id="trending-skills" class="py-5">
   <div class="container">
       <div class="text-center mb-5">
-          <h2 class="fw-bold">What Our Users Say</h2>
+          <h2 class="fw-bold">Trending Skills</h2>
+          <p class="text-muted">Popular skills in demand right now.</p>
       </div>
       <div class="row g-4">
-          <div class="col-md-6">
-              <div class="testimonial">
-                  <p>"SkillMatch helped me find the perfect partner for my startup. The platform is intuitive and efficient!"</p>
-                  <p class="fw-bold">- Ashraful.</p>
+          <div class="col-md-3">
+              <div class="card skill-card text-center">
+                  <div class="card-body">
+                      <h5 class="card-title">Web Development</h5>
+                  </div>
               </div>
           </div>
-          <div class="col-md-6">
-              <div class="testimonial">
-                  <p>"I found a community of like-minded individuals to collaborate with. Highly recommend!"</p>
-                  <p class="fw-bold">- Kazi.</p>
+          <div class="col-md-3">
+              <div class="card skill-card text-center">
+                  <div class="card-body">
+                      <h5 class="card-title">Graphic Design</h5>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card skill-card text-center">
+                  <div class="card-body">
+                      <h5 class="card-title">Data Analysis</h5>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card skill-card text-center">
+                  <div class="card-body">
+                      <h5 class="card-title">Digital Marketing</h5>
+                  </div>
               </div>
           </div>
       </div>
   </div>
 </section>
 
-
+<!-- Call to Action Section -->
+<section id="call-to-action" class="py-5 text-white" style="background: #007bff;">
+  <div class="container text-center">
+      <h2 class="fw-bold">Join the TalentDock Community Today!</h2>
+      <p class="lead">Find the right people, build amazing projects, and grow your network.</p>
+      <a href="#" class="btn btn-light btn-lg mt-3 shadow">Sign Up Now</a>
+  </div>
+</section>
 
 <style>
   @keyframes fadeIn {
@@ -95,7 +189,8 @@
       box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
       animation: fadeIn 1.5s ease-in-out;
   }
-  .feature-card {
+
+  .feature-card, .skill-card {
       transition: transform 0.3s, box-shadow 0.3s;
       border: none;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -103,34 +198,16 @@
       overflow: hidden;
       background: linear-gradient(to bottom, #f8f9fa, #ffffff);
   }
-  .feature-card:hover {
+
+  .feature-card:hover, .skill-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
   }
-  .testimonial {
-      font-style: italic;
-      border-left: 4px solid #007bff;
-      padding-left: 15px;
-      background: #f8f9fa;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-  }
-  footer {
-      background: #181a1d;
-      color: white;
-      padding: 40px 0;
-  }
-  .footer-links a {
-      color: #ffffff;
-      text-decoration: none;
-  }
-  .footer-links a:hover {
-      color: #007bff;
-      text-decoration: underline;
-  }
+
   .btn-glow {
       box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
   }
+
   .btn-glow:hover {
       box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
   }

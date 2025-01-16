@@ -7,6 +7,7 @@ urlpatterns = [
     path('filter-jobs', views.filter_jobs, name='filter_jobs'),
     path('find-job', views.find_job, name='find_job'),
     path('', views.home, name='homepage'),
+    path('aboutUs/', views.about, name='aboutpage'),
     path('', include('loginpage.urls')),
     path('', include('jobPost.urls')),
     path('', include('Categories.urls')),
