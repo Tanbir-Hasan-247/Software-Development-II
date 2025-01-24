@@ -20,8 +20,9 @@ class JobPost(models.Model):
 
     title = models.CharField(max_length=200)
     job_type = MultiSelectField(choices=JOB_TYPES)
-    description = models.TextField()
-    Categories = models.ManyToManyField(Categories) 
+    
+    Required_Technical_Skills = models.ManyToManyField(Categories)
+    description = models.TextField() 
     posted_on = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Not-Find')

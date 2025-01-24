@@ -22,9 +22,9 @@ class show_profile(UserChangeForm):
             field.disabled = True  
             
 class EditProfile(UserChangeForm):
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'id':'required'}))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={'id':'required'}))
-    email = forms.CharField(widget=forms.TextInput(attrs={'id':'required'}))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'id':'required', 'class': 'form-control'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'id':'required', 'class': 'form-control'}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'id':'required', 'class': 'form-control'}))
     password = None
     class Meta:
         model = User

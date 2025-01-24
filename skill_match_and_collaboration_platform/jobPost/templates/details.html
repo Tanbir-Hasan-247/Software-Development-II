@@ -9,15 +9,16 @@
             <p><strong>Posted By:</strong> {{ job.author.username }}</p>
             <p><strong>Posted On:</strong> {{ job.posted_on|date:"F j, Y" }}</p>
             <p><strong>Job Type:</strong> {{ job.job_type|join:", " }}</p>
-            <p><strong>Description:</strong></p>
-            <p>{{ job.description }}</p>
-            <p><strong>Categories:</strong> 
-                {% for category in job.Categories.all %}
+            <p><strong>Required Technical Skills:</strong> 
+                {% for category in job.Required_Technical_Skills.all %}
                     <span class="badge bg-primary">{{ category.name }}</span>
                 {% empty %}
                     <span>No categories specified.</span>
                 {% endfor %}
             </p>
+            <p><strong>Description:</strong></p>
+            <p>{{ job.description }}</p>
+            
             <!-- <p><strong>Status:</strong> 
                 <span class="badge {% if job.status == 'Find' %}bg-success{% else %}bg-warning{% endif %}">
                     {{ job.status }}
@@ -37,11 +38,12 @@
           <a href="{% url 'apply_job' job.id %}" class="btn btn-danger disabled">Application closed</a>
       </div>
       {% endif %}
+      {% endif %}
     {% else %}
         <div class="alert alert-warning mt-4">
             <p>You must be logged in to apply for this job. <a href="{% url 'loginpage' %}" class="alert-link">Login here</a>.</p>
         </div>
-    {% endif %}
+    
     {% endif %}
 
     <div class="mt-4">

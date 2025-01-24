@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<!-- {% if messages %}
-    {% for m in messages %}
-    <small {% if m.tags %} class="{{m.tags}}" {% endif %}>{{m}}</small>
-    {% endfor %}
-{% endif %} -->
 <form method="post" style="width: 40%; margin: auto;" class="pt-5" novalidate>
     <!-- {{form|crispy}} -->
      {% csrf_token %}

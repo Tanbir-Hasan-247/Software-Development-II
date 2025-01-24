@@ -6,7 +6,7 @@
     <small {% if m.tags %} class="{{m.tags}}" {% endif %}>{{m}}</small>
     {% endfor %}
 {% endif %}
-<form method="post" style="width: 40%; margin: auto;" class="pt-5" novalidate>
+<form method="post" style="width: 40%; margin: auto;" class="pt-5 pb-5" novalidate>
     <!-- {{form|crispy}} -->
      {% csrf_token %}
     {% for fm in form %}

@@ -16,7 +16,7 @@
           
           <div class="categories tags">
             <strong>Categories:</strong>
-            {% for category in job.Categories.all %}
+            {% for category in job.Required_Technical_Skills.all %}
             <span class="category">{{ category.name }}</span>
             {% empty %}
             <span>No categories assigned</span>
@@ -34,6 +34,7 @@
         </div>
       </div>
       <!-- Apply Button -->
+      {% if user.is_authenticated %}
        {% if job.author.username != user.username %}
        {% if job.status == 'Not-Find' %}
       <a href="{% url 'apply_job' job.id %}" type="button" class="status-button btn btn-primary" >
@@ -44,6 +45,11 @@
         Closed
       </a>
       {% endif %}
+      {% endif %}
+      {% else %}
+      <a href="{% url 'signup'%}" type="button" class="status-button btn btn-primary" >
+        Apply
+      </a>
       {% endif %}
     </div>
     {% empty %}
