@@ -35,3 +35,38 @@ Follow these steps to run the project locally on your machine:
 ```bash
 git clone [https://github.com/Tanbir-Hasan-247/Software-Development-II.git](https://github.com/Tanbir-Hasan-247/Software-Development-II.git)
 cd Software-Development-II/skill_match_and_collaboration_platform
+```
+**2. Create a virtual environment (Recommended)**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+```
+
+**3. Install dependencies**
+*(Ensure you have a `requirements.txt` file, or install Django manually)*
+```bash
+pip install django
+```
+
+**4. Apply database migrations**
+```Bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+**5. Create a superuser (Admin)**
+```Bash
+python manage.py createsuperuser
+```
+**6. Run the development server**
+```Bash
+python manage.py runserver
+```
+**7. Access the application**
+*Open your web browser and navigate to http://127.0.0.1:8000/.
+
+## 👨‍💻 Author
+
+**Tanbir Hasan**
+* GitHub: [@Tanbir-Hasan-247](https://github.com/Tanbir-Hasan-247)
+* LinkedIn: [Tanbir Hasan](https://www.linkedin.com/in/tanbir-hasan-638075345/)
